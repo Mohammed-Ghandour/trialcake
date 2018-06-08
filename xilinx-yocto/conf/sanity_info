@@ -1,0 +1,3 @@
+SANITY_VERSION 1
+TMPDIR /home/mohammed/poky-daisy/build/tmp
+SSTATE_DIR /home/mohammed/poky-daisy/build/sstate-cache
