@@ -1,0 +1,67 @@
+This README file contains information on the contents of the
+sdr-dpr layer.
+
+Please see the corresponding sections below for details.
+
+
+Dependencies
+============
+
+This layer depends on:
+
+  URI: git://git.openembedded.org/bitbake
+  branch: master
+
+  URI: git://git.openembedded.org/openembedded-core
+  layers: meta
+  branch: master
+
+  URI: git://git.yoctoproject.org/xxxx
+  layers: xxxx
+  branch: master
+
+
+
+
+Table of Contents
+=================
+
+  I. Adding the sdr-dpr layer to your build
+ II. Misc
+
+
+I. Adding the sdr-dpr layer to your build
+=================================================
+
+--- replace with specific instructions for the sdr-dpr layer ---
+
+In order to use this layer, you need to make the build system aware of
+it.
+
+Assuming the sdr-dpr layer exists at the top-level of your
+yocto build tree, you can add it to the build system by adding the
+location of the sdr-dpr layer to bblayers.conf, along with any
+other layers needed. e.g.:
+
+  BBLAYERS ?= " \
+    /path/to/yocto/meta \
+    /path/to/yocto/meta-yocto \
+    /path/to/yocto/meta-yocto-bsp \
+    /path/to/yocto/meta-sdr-dpr \
+    "
+
+
+II. Misc
+========
+
+uhd_3.10.1.1.bbappend is used to copy the uhd-examples to another place in the root file-system
+
+update the cpp files then add -f compile to force recompilation
+or
+1-bitbake -c cleansstate uhd
+2-bitbake uhd (stop before compilation, i.e after do configure)
+3- now the makefile is generated and you can change in the code before compilation
+   bitbake -c devshell uhd
+4- change to the directory where the code exists and update it
+5- exit from the devshell
+6- bitbake uhd or bitbake sdr-gnuradio-image (it will compile the UHD in the middle)
